@@ -26,3 +26,47 @@ CREATE TABLE IF NOT EXISTS students(
     birthdate DATE, 
     PRIMARY KEY (student_id) 
 ); 
+
+CREATE TABLE IF NOT EXISTS academic_tiles(
+  academic_title_id INT AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  PRIMARY KEY (academic_title_id) 
+  );
+  
+ CREATE TABLE IF NOT EXISTS instructors(
+    instructor_id INT AUTO_INCREMENT,
+    first_name VARCHAR(80) NOT NULL,
+    last_name VARCHAR(80) NOT FULL,
+    academic_title_id INT FOREIGN KEY, /*check this please*/
+    PRIMARY KEY (instructor_id)
+    );
+   
+   CREATE TABLE IF NOT EXISTS terms(
+     term_id INT AUTO_INCREMENT,
+     name VARCHAR(80) NOT NULL,
+     PRIMARY KEY (term_id)
+     );
+     
+    CREATE TABLE IF NOT EXISTS class_sections /*look over this one from page 9*/
+      class_section_id INT AUTO_INCREMENT,
+      class_id INT NOT NULL,
+      instructor_id NOT NULL,
+      term_id NOT NULL,
+      PRIMARY KEY (class_section_id)
+    );
+    
+    CREATE TABLE IF NOT EXISTS grades(
+      grade_id INT AUTO_INCREMENT,
+      letter_grade CHAR(2) NOT NULL,
+      PRIMARY KEY (grade_id)
+      );
+     
+     CREATE TABLE IF NOT EXISTS class_registrations( /* looked at this one*/
+       class_registration_id INT AUTO_INCREMENT,
+       class_section_id INT NOT NULL,
+       student_id NOT NULL,
+       grade_id FOREIGN KEY,
+       signup_timestamp datetime DEFAULT CURRENT_TIMESTAMP,
+       PRIMARY KEY (class_registration_id)
+       );
+    
