@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS students(
     PRIMARY KEY (student_id) 
 ); 
 
-CREATE TABLE IF NOT EXISTS `academic_title` (
+CREATE TABLE IF NOT EXISTS `academic_titles` (
   `academic_title_id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   PRIMARY KEY (`academic_title_id`)
@@ -37,12 +37,12 @@ CREATE TABLE IF NOT EXISTS `cs_hu_310_final_project`.`instructors` (
   `instructor_id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(80) NOT NULL,
   `last_name` VARCHAR(80) NOT NULL,
-  `adademic_title_id` INT NULL,
+  `academic_title_id` INT NULL,
   PRIMARY KEY (`instructor_id`),
-  INDEX `FK_instructors_academic_idx` (`adademic_title_id` ASC) VISIBLE,
+  INDEX `FK_instructors_academic_idx` (`academic_title_id` ASC) VISIBLE,
   CONSTRAINT `FK_instructors_academic`
-    FOREIGN KEY (`adademic_title_id`)
-    REFERENCES `cs_hu_310_final_project`.`academic_title` (`academic_title_id`)
+    FOREIGN KEY (`academic_title_id`)
+    REFERENCES `cs_hu_310_final_project`.`academic_titles` (`academic_title_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
