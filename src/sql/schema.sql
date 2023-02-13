@@ -4,6 +4,7 @@ USE cs_hu_310_final_project;
 DROP TABLE IF EXISTS class_registrations; 
 DROP TABLE IF EXISTS grades; 
 DROP TABLE IF EXISTS class_sections; 
+DROP TABLE IF EXISTS terms; 
 DROP TABLE IF EXISTS instructors; 
 DROP TABLE IF EXISTS academic_titles; 
 DROP TABLE IF EXISTS students; 
